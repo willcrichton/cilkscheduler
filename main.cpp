@@ -1,5 +1,5 @@
 #include <iostream>
-#include "lib.h"
+#include "lib.hpp"
 
 void f(int x, int y){
   std::cout << x << " " << y <<"\n";
