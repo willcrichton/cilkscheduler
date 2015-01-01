@@ -6,10 +6,12 @@
 #include "ref.hpp"
 #include "util/CycleTimer.hpp"
 
+// TODO: add more tests + correctness check
+
 void spin() {
   volatile int x = 0;
-  for (int i = 0; i < 10; i++) {
-    for (int j = 0; j < 10; j++) {
+  for (int i = 0; i < 100; i++) {
+    for (int j = 0; j < 100; j++) {
       x++;
     }
   }
@@ -28,7 +30,7 @@ int main() {
   double refTime = time([&] () {
       ref::init_runtime();
 
-      for (int i = 0; i < 1000; i++) {
+      for (int i = 0; i < 10000; i++) {
         ref::spawn(spin);
       }
 
@@ -41,11 +43,14 @@ int main() {
   double yourTime = time([&] (){
       lib::init_runtime();
 
-      for (int i = 0; i < 1000; i++) {
+      std::cout << "Spawning\n";
+      for (int i = 0; i < 10000; i++) {
         lib::spawn(spin);
       }
 
+      std::cout << "Syncing\n";
       lib::sync();
+      std::cout << "Destroying\n";
       lib::destroy_runtime();
     });
 

@@ -1,9 +1,13 @@
-#ifndef _418_LIB_
-#define _418_LIB_
+#ifndef _418_REF_
+#define _418_REF_
 
-namespace lib {
+namespace ref {
 
-  void init_runtime(){
+  void init_runtime() {
+    // no-op
+  }
+
+  void destroy_runtime() {
     // no-op
   }
 
