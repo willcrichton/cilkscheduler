@@ -3,18 +3,26 @@
 
 #include <functional>
 
-typedef std::function<void()> Function;
+namespace lib {
 
-template<typename... Args>
-void spawn(void f(Args...), Args... args) {
-  Function fn = [&] () { f(args...); };
+  typedef std::function<void()> Function;
 
-  // run it serially
-  fn();
-}
+  void init_runtime(){
+    // no-op
+  }
 
-void sync() {
-  // no-op
+  template<typename... Args>
+  void spawn(void f(Args...), Args... args) {
+    Function fn = [&] () { f(args...); };
+
+    // run it serially
+    fn();
+  }
+
+  void sync() {
+    // no-op
+  }
+
 }
 
 #endif

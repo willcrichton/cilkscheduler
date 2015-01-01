@@ -1,4 +1,5 @@
 .PHONY: test
+.SILENT: test
 
 CXX=g++
 CXX_FLAGS=-g -Wall -std=c++11
