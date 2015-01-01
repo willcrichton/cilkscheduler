@@ -1,4 +1,5 @@
 *.out
 *.dSYM
+*.trace
 main
 test

@@ -12,10 +12,6 @@ namespace ref {
     // no-op
   }
 
-  void destroy_runtime() {
-    // no-op
-  }
-
   template<typename... Args>
   void spawn(void f(Args...), Args... args) {
     threads.push_back(std::thread([=] () { f(args...); }));
@@ -26,6 +22,7 @@ namespace ref {
         t.join();
       });
   }
+
 }
 
 #endif

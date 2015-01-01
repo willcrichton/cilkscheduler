@@ -1,5 +1,5 @@
 .PHONY: test
-.SILENT: test
+.SILENT:
 
 CXX=g++
 CXX_FLAGS=-g -Wall -std=c++11
@@ -10,4 +10,7 @@ all:
 test:
 	$(CXX) $(CXX_FLAGS) test.cpp -o test
 	./test
-	rm test
+
+clean:
+	rm -f main
+	rm -rf *.dSYM

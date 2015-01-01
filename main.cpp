@@ -6,7 +6,8 @@ void f(int x, int y){
 }
 
 int main() {
-  spawn(f, 3, 5);
-  sync();
+  lib::spawn(f, 3, 5);
+  lib::sync();
+
   return 0;
 }
